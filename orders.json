@@ -1,0 +1,10 @@
+[
+  {"productId": "1", "productType": "smartphone", "productsFirma": "Apple", "productsModel": "IPhone 8", "ProductsPrice": "650"},
+  {"productId": "2", "productType": "laptop", "productsFirma": "Lenovo", "productsModel": "Thinkpad", "ProductsPrice": "450"},
+  {"productId": "3", "productType": "smartphone", "productsFirma": "HTC", "productsModel": "Desire", "ProductsPrice": "300"},
+  {"productId": "4", "productType": "smartphone", "productsFirma": "Samsung", "productsModel": "Galaxy Note", "ProductsPrice": "700"},
+  {"productId": "5", "productType": "smartphone", "productsFirma": "Apple", "productsModel": "IPhone SE", "ProductsPrice": "400"},
+  {"productId": "6", "productType": "tablet", "productsFirma": "Apple", "productsModel": "IPad 4", "ProductsPrice": "280"},
+  {"productId": "7", "productType": "laptop", "productsFirma": "Apple", "productsModel": "Macbook Pro", "ProductsPrice": "1500"},
+  {"productId": "8", "productType": "smartWatch", "productsFirma": "Apple", "productsModel": "Apple Watch 4", "ProductsPrice": "300"}
+]
