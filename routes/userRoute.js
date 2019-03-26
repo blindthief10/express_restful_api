@@ -1,6 +1,7 @@
 const express = require('express');
 const users = require('../users.json');
 const usersRoute = express.Router();
+const { check, validationResult } = require('express-validator/check');
 
 usersRoute.get('/', (req, res, next) => {
   res.status(200).send(users);
@@ -18,9 +19,22 @@ usersRoute.get('/:username', (req, res, next) => {
   }
 })
 
-usersRoute.post('/', (req, res, next) => {
-  users.push(req.body);
-  res.status(201).send('A new user was created');
+usersRoute.post('/', [
+  check(['firstName', 'lastName', 'password', 'email', 'userName']).exists().withMessage('All fields are required!'),
+  check('email').isEmail().withMessage('The email you have passed is invalid'),
+  check('password').isLength({min: 4, max: 20}).withMessage('The password field must be between 4 and 20 characters')
+], (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (errors.isEmpty()) {
+    users.push(req.body);
+    res.status(201).send('The user was created succesfully!');
+  }else {
+    res.status(422).json({
+      errors: errors.array()
+    })
+  }
+
 })
 
 usersRoute.use('/:username', (req, res, next) => {
