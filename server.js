@@ -6,6 +6,8 @@ const morgan = require('morgan');
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(express.static('public'));
+
 app.use('/users', userRoute);
 
 app.use((err, req, res, next) => {

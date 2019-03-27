@@ -22,7 +22,18 @@ usersRoute.get('/:username', (req, res, next) => {
 usersRoute.post('/', [
   check(['firstName', 'lastName', 'password', 'email', 'userName']).exists().not().isEmpty().withMessage('All fields are required!'),
   check('email').trim().isEmail().normalizeEmail().withMessage('The email you have passed is invalid'),
-  check('password').trim().isLength({min: 4, max: 20}).escape().withMessage('The password field must be between 4 and 20 characters')
+  check('password').trim().isLength({min: 4, max: 20}).escape().withMessage('The password field must be between 4 and 20 characters'),
+  check('email').custom(emailValue => {
+
+    const foundUserByThisEmail = users.find(user => user.email === emailValue);
+
+    if (foundUserByThisEmail) {
+      throw new Error(`A user with email address ${emailValue} already exists!`);
+    }else {
+      return true;
+    }
+
+  })
 ], (req, res, next) => {
   const errors = validationResult(req);
 
