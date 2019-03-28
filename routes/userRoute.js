@@ -39,7 +39,9 @@ usersRoute.post('/', [
 
   if (errors.isEmpty()) {
     users.push(req.body);
-    res.status(201).send('The user was created succesfully!');
+    res.status(201).json({
+      message: 'The user was created succesfully!'
+    });
   }else {
     res.status(422).json({
       errors: errors.array()
