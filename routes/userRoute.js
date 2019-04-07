@@ -43,9 +43,9 @@ usersRoute.post('/', [
       message: 'The user was created succesfully!'
     });
   }else {
-    res.status(422).json({
-      errors: errors.array()
-    })
+    const errorCase = new Error(errors.array()[0].msg);
+    errorCase.status = 403;
+    next(errorCase);
   }
 
 })

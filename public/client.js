@@ -24,9 +24,5 @@ form.addEventListener('submit', ev => {
     paragraph.innerText = data.message;
     document.body.appendChild(paragraph);
   })
-  .catch(err => {
-    const paragraph = document.createElement('P');
-    paragraph.innerText = err;
-    document.body.appendChild(paragraph);
-  })
+  .catch(err => console.log(err))
 })
