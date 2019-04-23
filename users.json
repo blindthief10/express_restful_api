@@ -1,32 +1,32 @@
-[
+
   {
     "firstName": "Mauricio",
     "lastName": "Navarro",
     "userName": "Mauro",
     "email": "mauro@gmail.com",
     "password": "mauro46"
-  },
+  }
   {
     "firstName": "Jewgeny",
     "lastName": "Kuhn",
     "userName": "Eugen",
     "email": "eugen@gmx.net",
     "password": "eugen32"
-  },
+  }
   {
     "firstName": "Meir",
     "lastName": "Overferst",
     "userName": "meirHelpMe",
     "email": "meir@gmail.com",
     "password": "meirTheKing"
-  },
+  }
   {
     "firstName": "Daniel",
     "lastName": "Cipolla",
     "userName": "danielTheAbsent",
     "email": "latino69xxx@gmail.com",
     "password": "danielTheMachine"
-  },
+  }
   {
     "firstName": "Milad",
     "lastName": "Khoshkaran",
@@ -34,4 +34,3 @@
     "email": "milad@gmail.com",
     "password": "theBeast"
   }
-]

@@ -1,5 +1,4 @@
 const express = require('express');
-const users = require('../users.json');
 const usersRoute = express.Router();
 const { check, validationResult } = require('express-validator/check');
 
