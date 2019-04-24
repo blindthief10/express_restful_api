@@ -55,27 +55,27 @@ usersRoute.get('/:username', async (req, res, next) => {
 //   }
 //
 // })
-//
-// usersRoute.use('/:username', (req, res, next) => {
-//   req.usersIndex = users.findIndex(user => user.userName === req.params.username);
-//
-//   if (req.usersIndex !== -1) {
-//     next();
-//   }else {
-//     const errorCase = new Error(`The user ${req.params.username} could not be found!!`);
-//     errorCase.status = 404;
-//     next(errorCase);
-//   }
-// })
-//
-// usersRoute.put('/:username', (req, res, next) => {
-//     users[req.usersIndex] = req.body;
-//     res.status(200).send('Update succesful!');
-// })
-//
-// usersRoute.delete('/:username', (req, res, next) => {
-//     users.splice(req.usersIndex, 1);
-//     res.status(202).send('Resource was deleted succesfully!');
-// })
+
+usersRoute.put('/:username', async (req, res, next) => {
+    // Update a document by username
+    try {
+      const updatedUser = await userModel.findOneAndUpdate({userName: req.params.username}, req.body, {new: true});
+      updatedUser ? res.status(200).json(updatedUser) : res.status(404).send('The user does not exist');
+    } catch (error) {
+      next(error);
+    }
+
+})
+
+usersRoute.delete('/:username', async (req, res, next) => {
+
+  try {
+    const toBeDeleted = await userModel.findOneAndDelete({userName: req.params.username});
+    toBeDeleted ? res.status(202).send('Resource was deleted succesfully!') : res.status(404).send('User does not exist')
+  } catch(error) {
+    next(error);
+  }
+
+})
 
 module.exports = usersRoute;
